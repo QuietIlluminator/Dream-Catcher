@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=12.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+
+  <title>Dream Counter</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrapper {
+      max-width: 100%;
+      margin: 50px auto;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      /*BACKGROUND color for active*/
+      text-decoration: none;
+      background-color: #77e0cb;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #77e0cb;
+      color: white;
+      text-align: center;
+    }
+
+    body {
+      font-family: 'Lato', Helvetica, sans-serif;
+      text-decoration: none;
+    }
+
+    .navbar-default .navbar-nav>a:active {
+      text-decoration: none;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:focus {
+      color: black;
+      /*Sets the text hover color on navbar*/
+      text-decoration: underline;
+
+    }
+
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:active {
+      text-decoration: underline;
+    }
+
+
+    a {
+      transition: all 0.2s linear;
+    }
+
+
+
+    .navbar-default {
+      background-color: #77e0cb;
+      border-color: #77e0cb;
+      height: 95px;
+      font-size: 24px;
+      padding-right: 37px;
+      padding-left: 37px;
+      padding-top: 1px;
+      text-decoration: none;
+
+    }
+
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus {
+      color: #262626;
+      text-decoration: none;
+      background-color: #66CCFF;
+      /*change color of links in drop down here*/
+    }
+
+    .nav>li>a:hover,
+    .nav>li>a:focus {
+      text-decoration: none;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: black;
+      /*Change active text color here*/
+    }
+
+    header {
+      background-color: #77e0cb;
+      flex: 0 0 40px;
+      color: #77e0cb;
+      padding: 10px;
+    }
+
+    header nav {
+      background-color: #77e0cb;
+      color: #77e0cb;
+      text-decoration: none;
+      font-size: 24px;
+      font-family: 'Dosis', sans-serif;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    header nav a {
+      color: #77e0cb;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    nav {
+      background-color: #77e0cb;
+    }
+
+    nav ul li {
+      list-style-type: none;
+      padding: 5px 137px;
+      display: inline-flex;
+      justify-content: space-around;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      transition: all 0.2s linear;
+    }
+
+    a:hover,
+    a:focus {
+      color: #000000;
+    }
+
+    html {
+      font-family: 'Lato', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .jumbotron {
+      background-image: url('https://i.ibb.co/WxsTS8c/Screen-Shot-2021-02-20-at-5-23-00-PM.png');
+      ;
+      width: 30%;
+      text-align: center;
+      padding-top: 20px;
+      margin-top: 10px;
+      margin-left: 700px;
+      padding-bottom: 60px;
+      border-radius: 7px;
+      box-shadow: 0px 0px 2px 2px steelblue;
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fullwidth">
+        <div class="navbar-header">
+          <a class="navbar-brand"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Dream Land</a></li>
+          <li><a href="dreamjournal.html"> Dream Journal</a></li>
+          <li><a href="dreamvibes.html">Dream Vibes</a></li>
+          <li><a href="dreamcounter.html">Dream Counter</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <form onsubmit="return false;">
+        <div class="row">
+          <h3>Daily Dream Trends</h3>
+          <div class="form-group col-md-1">
+            <label for="sundayNumber">Sunday:</label>
+            <input type="number" class="form-control" id="sundayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="mondayNumber">Monday:</label>
+            <input type="number" class="form-control" id="mondayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="tuesdayNumber">Tuesday:</label>
+            <input type="number" class="form-control" id="tuesdayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="wednesdayNumber">Wednesday:</label>
+            <input type="number" class="form-control" id="wednesdayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="thursdayNumber">Thursday:</label>
+            <input type="number" class="form-control" id="thursdayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="fridayNumber">Friday:</label>
+            <input type="number" class="form-control" id="fridayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="saturdayNumber">Saturday:</label>
+            <input type="number" class="form-control" id="saturdayNumber" name="saturdayNumber"
+              placeholder="Number of Different Dreams"></input>
+          </div>
+        </div>
+        <button type="submit" onclick="display()" class="btn btn-primary btn-block">Graph</button>
+      </form>
+    </div>
+
+    <div class="wrapper">
+      <canvas id="myChart" width="1600" height="800" margin="50"></canvas>
+    </div>
+  </div>
+  <script src="dreamcounter.js"></script>
+</body>
+<div class="footer">
+  <p class="center">Created for LambdaHacks 2021</p>
+</div>
+
+</html>

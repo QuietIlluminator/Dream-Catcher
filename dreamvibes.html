@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=12.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+
+  <title>Dream Chart</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrapper {
+      max-width: 100%;
+      margin: 50px auto;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:hover,
+    .navbar-default .navbar-nav>.active>a:focus {
+      color: #77e0cb;
+      /*BACKGROUND color for active*/
+      text-decoration: none;
+      background-color: #77e0cb;
+    }
+
+    body {
+      font-family: 'Lato', Helvetica, sans-serif;
+      text-decoration: none;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #77e0cb;
+      color: white;
+      text-align: center;
+    }
+
+
+
+    .navbar-default .navbar-nav>a:active {
+      text-decoration: none;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:focus {
+      color: #000;
+      /*Sets the text hover color on navbar*/
+      text-decoration: none;
+
+    }
+
+    .navbar-default .navbar-nav>li>a:hover,
+    .navbar-default .navbar-nav>li>a:active {
+      text-decoration: none;
+    }
+
+
+    a {
+      transition: all 0.2s linear;
+    }
+
+
+
+    .navbar-default {
+      background-color: #77e0cb;
+      border-color: #77e0cb;
+      height: 95px;
+      font-size: 24px;
+      padding-right: 37px;
+      padding-left: 37px;
+      padding-top: 1px;
+      text-decoration: none;
+
+    }
+
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus {
+      color: #262626;
+      text-decoration: none;
+      background-color: #66CCFF;
+      /*change color of links in drop down here*/
+    }
+
+    .nav>li>a:hover,
+    .nav>li>a:focus {
+      text-decoration: none;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: black;
+      /*Change active text color here*/
+    }
+
+    header {
+      background-color: #01268b;
+      flex: 0 0 40px;
+      color: white;
+      padding: 10px;
+    }
+
+    header nav {
+      background-color: transparent;
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-family: 'Dosis', sans-serif;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    nav {
+      background-color: #f0f0f0;
+    }
+
+    nav ul li {
+      list-style-type: none;
+      padding: 5px 137px;
+      display: inline-flex;
+      justify-content: space-around;
+    }
+
+    nav a:hover {
+      text-decoration: none;
+    }
+
+    a {
+      transition: all 0.2s linear;
+    }
+
+    a:hover,
+    a:focus {
+      color: #000000;
+    }
+
+    .jumbotron {
+      background-image: url('https://i.ibb.co/WxsTS8c/Screen-Shot-2021-02-20-at-5-23-00-PM.png');
+      ;
+      width: 30%;
+      text-align: center;
+      font-size: 24px;
+      padding-top: 20px;
+      margin-top: 10px;
+      padding-bottom: 60px;
+      margin-left: 700px;
+      border-radius: 7px;
+      box-shadow: 0px 0px 2px 2px steelblue;
+
+    }
+
+    .form-control-plaintext {
+      border: none;
+      border-bottom: 2px solid;
+      border-radius: 4px;
+      padding: 12px 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fullwidth">
+        <div class="navbar-header">
+          <a class="navbar-brand"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Dream Land</a></li>
+          <li><a href="dreamjournal.html"> Dream Journal</a></li>
+          <li><a href="dreamvibes.html">Dream Vibes</a></li>
+          <li><a href="dreamcounter.html">Dream Counter</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <form onsubmit="return false;">
+        <div class="row">
+          <h3>Post-sleep Feelings </h3>
+          <h5>How many days this week did you wake up feeling... </h5><br />
+          <div class="form-group col-md-3">
+            <label for="awesome">awesome?</label>
+            <input type="number" class="form-control" id="awesome" placeholder="Number of Days"></input>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="normal">normal?</label>
+            <input type="number" class="form-control" id="normal" placeholder="Number of Days"></input>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="tense">tense?</label>
+            <input type="number" class="form-control" id="tense" placeholder="Number of Days"></input>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="horrible">horrible?</label>
+            <input type="number" class="form-control" id="horrible" placeholder="Number of Days"></input>
+          </div>
+        </div>
+        <button type="submit" onclick="display()" class="btn btn-default btn-block">Graph</button>
+      </form>
+    </div>
+
+    <div class="wrapper">
+      <canvas id="myChart" width="1600" height="800" margin="50"></canvas>
+    </div>
+  </div>
+  <script src="dreamvibes.js"></script>
+</body>
+<div class="footer">
+  <p class="center">Created for LambdaHacks 2021</p>
+</div>
+
+</html>
